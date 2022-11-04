@@ -7,6 +7,11 @@
       <itemPath>adc.h</itemPath>
       <itemPath>defines.h</itemPath>
       <itemPath>main.h</itemPath>
+      <itemPath>fan.h</itemPath>
+      <itemPath>pwm.h</itemPath>
+      <itemPath>lm35.h</itemPath>
+      <itemPath>init.h</itemPath>
+      <itemPath>interrupt.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -17,6 +22,11 @@
                    projectFiles="true">
       <itemPath>main.c</itemPath>
       <itemPath>adc.c</itemPath>
+      <itemPath>fan.c</itemPath>
+      <itemPath>pwm.c</itemPath>
+      <itemPath>lm35.c</itemPath>
+      <itemPath>init.c</itemPath>
+      <itemPath>interrupt.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -101,7 +111,7 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="verbose" value="false"/>
-        <property key="warning-level" value="-3"/>
+        <property key="warning-level" value="0"/>
         <property key="what-to-do" value="ignore"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>
@@ -147,7 +157,7 @@
         <property key="opt-xc8-linker-file" value="false"/>
         <property key="opt-xc8-linker-link_startup" value="false"/>
         <property key="opt-xc8-linker-serial" value=""/>
-        <property key="program-the-device-with-default-config-words" value="true"/>
+        <property key="program-the-device-with-default-config-words" value="false"/>
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
       <XC8-CO>

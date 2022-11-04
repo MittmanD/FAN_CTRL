@@ -10,5 +10,10 @@
 
 void main(void) 
 {
-    return;
+    init();
+    
+    while (1)
+    {
+        
+    }
 }
