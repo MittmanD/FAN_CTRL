@@ -6,7 +6,7 @@
  */
 
 
-#include <xc.h>
+#include "main.h"
 
 void main(void) 
 {
