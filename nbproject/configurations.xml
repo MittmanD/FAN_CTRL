@@ -12,6 +12,7 @@
       <itemPath>lm35.h</itemPath>
       <itemPath>init.h</itemPath>
       <itemPath>interrupt.h</itemPath>
+      <itemPath>io.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -27,6 +28,7 @@
       <itemPath>lm35.c</itemPath>
       <itemPath>init.c</itemPath>
       <itemPath>interrupt.c</itemPath>
+      <itemPath>io.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

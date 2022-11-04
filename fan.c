@@ -1,9 +1,11 @@
 #include "fan.h"
 
 
+
+
 void fan_init (void)
 {
-
+    
 
 
 }
