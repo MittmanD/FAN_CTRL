@@ -5,6 +5,7 @@ extern void pwm_init (void);
 extern void dip_init (void);
 extern void adc_init (void);
 extern void timer2_init (void);
+extern void pwm_set (unsigned int pwm_duty);
 
 typedef struct
 {

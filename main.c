@@ -13,5 +13,7 @@ void main(void)
     while (1)
     {
         
+        
+        fan_update
     }
 }
