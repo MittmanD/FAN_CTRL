@@ -14,7 +14,12 @@ void pwm_init (void)
     PWM3CON |= EN;      // PWM enable
 }
 
-void pwm_set (unsigned int pwm_duty)
+void pwm_set (unsigned char pwm_duty)
+{
+    pwm_set_UI((unsigned int)(Fakt * ((float)pwm_duty)));
+}
+
+void pwm_set_UI (unsigned int pwm_duty)
 {
      PWM3DCH = (unsigned char)((pwm_duty & 0x03FC) >> 2);
      PWM3DCL = (unsigned char)((pwm_duty & 0x0003) << 6);

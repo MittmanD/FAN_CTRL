@@ -6,12 +6,7 @@
 #define PWM_MIN_DUTY        10      //  10% minimum
 #define PWM_MAX_DUTY       100      // 100% maximum
 
-typedef struct FAN
-{
-    unsigned int    PWM_duty;
-    unsigned char   FAN_tab;
-    unsigned char   index;
-};
+FAN FAN_database;
                  
 static const unsigned char fan_tab[FAN_TAB_COUNT][FAN_STEP_COUNT] =  
 //   0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20
@@ -22,17 +17,18 @@ static const unsigned char fan_tab[FAN_TAB_COUNT][FAN_STEP_COUNT] =
 
 void fan_init (void)
 {
-    unsigned char TAB_index;
-    
+    FAN_database.PWM_duty    = 0;
+    FAN_database.index       = 0;
+    FAN_database.FAN_tab     = 0;
 }
 
-struct FAN fan_update (unsigned char temperature, unsigned char tab)
+void fan_update (FAN *FAN_DB)
 {
     unsigned char TAB_index;
-    struct FAN fan_temp;
-    if (temperature > TEMP_OFFSET)
+    //struct FAN fan_temp;
+    if (FAN_DB->Temperature > TEMP_OFFSET)
     {
-        TAB_index = (temperature - TEMP_OFFSET) / 2; 
+        TAB_index = (FAN_DB->Temperature - TEMP_OFFSET) / 2; 
         if (TAB_index > (FAN_STEP_COUNT-1))
         {
             TAB_index = (FAN_STEP_COUNT-1);
@@ -42,8 +38,6 @@ struct FAN fan_update (unsigned char temperature, unsigned char tab)
     {
         TAB_index = 0;
     }
-    
-    fan_temp.index = TAB_index;
-    fan_temp.PWM_duty = fan_tab[tab][TAB_index];
-    return fan_temp;
+    FAN_DB->PWM_duty    = (unsigned char)(fan_tab[FAN_DB->FAN_tab][TAB_index]);
+    FAN_DB->index       = TAB_index;
 }

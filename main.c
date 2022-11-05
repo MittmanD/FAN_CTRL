@@ -7,25 +7,14 @@
 
 #include "main.h"
 
-
-struct
-{
-    unsigned int    PWM_duty;
-    unsigned char   PWM_tab;
-    unsigned char   Temperature;
-}database; 
-
-
 void main(void) 
 {
     init();
     while (1)
     {
-        
-        database.Temperature = lm35_read();
-        database.PWM_tab = dip_read();
-        
-        //database.PWM_tab = fan_update(database.Temperature);
-        
+        FAN_database.Temperature = lm35_read();
+        FAN_database.FAN_tab = dip_read();
+        fan_update(&FAN_database);
+        pwm_set(FAN_database.PWM_duty);
     }
 }

@@ -6,7 +6,7 @@ void init (void)
     pwm_init();
     dip_init();
     adc_init();
-    
+    fan_init();
     
    pwm_set(0); 
 }
