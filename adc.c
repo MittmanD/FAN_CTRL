@@ -19,5 +19,5 @@ unsigned int adc_read (void)
 {
     ADCON0      |=      0x02;           // Start conversion
     while (ADCON0 & 0x02){}
-    return ((unsigned int)((ADRESH << 8) + ADRESL));
+    return ((unsigned int)(((ADRESH << 8) + ADRESL)) & 0x03FF);
 }
