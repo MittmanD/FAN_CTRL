@@ -1,4 +1,7 @@
 #include <xc.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
 
 typedef struct
 {
@@ -20,5 +23,18 @@ extern void pwm_set_UI (unsigned int pwm_duty);
 extern void fan_update (FAN *FAN_DB);
 extern unsigned char lm35_read(void);
 extern void fan_init (void);
+
+extern void EUSART1_Initialize(void);
+extern bool EUSART1_is_tx_ready(void);
+extern bool EUSART1_is_rx_ready(void);
+extern bool EUSART1_is_tx_done(void);
+extern uint8_t EUSART1_Read(void);
+extern void EUSART1_Write(uint8_t txData);
+extern void putch(char txData);
+extern void EUSART1_Transmit_ISR(void);
+extern void EUSART1_Receive_ISR(void);
+extern void (*EUSART1_TxDefaultInterruptHandler)(void);
+extern void (*EUSART1_RxDefaultInterruptHandler)(void);
+
 
 extern FAN FAN_database;

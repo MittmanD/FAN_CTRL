@@ -1,6 +1,5 @@
 #include "lm35.h"
-#define     VREF                1024.0f     // 1,024 V Referenz    
-#define     ADRESOLUTION        1024.0f     // 10 Bit Auflösung
+
 
 // 10mV pro °C
 
