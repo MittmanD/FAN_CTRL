@@ -22,13 +22,13 @@ void init (void)
     PCON1       = 0b00000010;
     
     timer2_init();
-    pwm_init();
-    dip_init();
-    adc_init();
-    fan_init();
-    EUSART1_Initialize();
+    //pwm_init();
+    //dip_init();
+    //adc_init();
+    //fan_init();
+    //EUSART1_Initialize();
     
-    pwm_set(0); 
+    //pwm_set(0); 
     INTCON |= 0x40;
     INTCON |= 0x80;
 }

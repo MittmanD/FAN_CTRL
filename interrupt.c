@@ -1,5 +1,8 @@
 #include "interrupt.h"
 
+#define PWM_PORT    LATC       // Pr�fen!
+#define PWM_TRIS    TRISC      // Pr�fen!
+#define PWM_PIN     0x04       // Pr�fen!
 
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
@@ -17,8 +20,14 @@ void __interrupt() INTERRUPT_InterruptManager (void)
         {
             EUSART1_RxDefaultInterruptHandler();
         } 
+        else if(PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
+        {
+            //PWM_PORT ^=   PWM_PIN;
+            PIR1bits.TMR2IF = 0;
+        }
         else
         {
+            __asm("nop");
             //Unhandled Interrupt
         }
     }      
