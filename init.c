@@ -7,7 +7,8 @@ void init (void)
     OSCEN       = 0b01010000;
     WDTCON      = 0x00;
     
-    while(!(OSCSTAT & 0x40)){}      // wait till HFINTOSC ist stable
+    while(!(OSCSTAT & 0x40));      // wait till HFINTOSC ist stable
+    while(!(OSCSTAT & 0x10));      // wait till LFINTOSC ist stable
     INTCON      = 0x00;
     
     PIE0        = 0x00;
@@ -21,12 +22,22 @@ void init (void)
     PCON0       = 0b00011111;
     PCON1       = 0b00000010;
     
+    ANSELA      &= (~0x10);     // UART
+    ANSELA      &= (~0x20);     // UART
+    
+    RA4PPS      = 0x05;
+    RX1PPS      = 0b00000101;
+    
+    timer0_init();
     timer2_init();
-    //pwm_init();
-    //dip_init();
-    //adc_init();
-    //fan_init();
-    //EUSART1_Initialize();
+    led_init();
+    
+    dip_init();
+    adc_init();
+    pwm_init();
+    fan_init();
+    
+    EUSART1_Initialize();
     
     //pwm_set(0); 
     INTCON |= 0x40;

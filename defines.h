@@ -1,4 +1,6 @@
 #include <xc.h>
+#include <float.h>
+#include <math.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -35,6 +37,12 @@ extern void EUSART1_Transmit_ISR(void);
 extern void EUSART1_Receive_ISR(void);
 extern void (*EUSART1_TxDefaultInterruptHandler)(void);
 extern void (*EUSART1_RxDefaultInterruptHandler)(void);
+extern void led_set (unsigned char state);
+extern void led_toggle (void);
+extern void led_init (void);
+extern void timer0_init (void);
+extern void timer0_isr (void);
+
 
 
 extern FAN FAN_database;
