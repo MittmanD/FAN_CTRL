@@ -30,7 +30,7 @@ unsigned char dip_read (void)
         else
            RetVal &= (~(1 << I));
     }
-    return RetVal;
+    return ((~RetVal) & 0x0F);
 }
 
 void led_init (void)
