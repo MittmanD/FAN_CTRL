@@ -1,8 +1,6 @@
 #include "lm35.h"
 
-
 // 10mV pro °C
-
 unsigned char lm35_read(void)
 {
     unsigned int Temp;

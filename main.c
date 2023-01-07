@@ -12,20 +12,18 @@ void main(void)
     init();
     while (1)
     {
-        //pwm_set(100);       // +++++++++++++++++++++++++++
-   
         if (timer_tick.tick_1s)
         {
             FAN_database.FAN_tab        = dip_read();
             FAN_database.Temperature    = lm35_read();
             
             fan_update(&FAN_database);
-            pwm_set(FAN_database.PWM_duty);
+            pwm_set(FAN_database.PWM_act_duty);
             
-            printf("Temp: %u\n", FAN_database.Temperature);
-            printf("Duty: %u\n", FAN_database.PWM_duty);
-            printf("Tab: %u\n", FAN_database.FAN_tab);
-            //led_set(1);
+            printf("[TE]%u\n", FAN_database.Temperature);
+            printf("[DA]%u\n", FAN_database.PWM_act_duty);
+            printf("[DT]%u\n", FAN_database.PWM_tar_duty);
+            printf("[IX]%u\n", FAN_database.FAN_tab);
             
             timer_tick.tick_1s = 0;
         }

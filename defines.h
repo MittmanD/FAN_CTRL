@@ -17,7 +17,8 @@ typedef struct
 
 typedef struct
 {
-    unsigned char   PWM_duty;
+    unsigned char   PWM_tar_duty;
+    unsigned char   PWM_act_duty;
     unsigned char   FAN_tab;
     unsigned char   index;
     unsigned char   Temperature;

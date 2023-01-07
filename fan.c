@@ -31,9 +31,10 @@ static const unsigned char fan_tab[FAN_TAB_COUNT][FAN_STEP_COUNT] =
  
 void fan_init (void)
 {
-    FAN_database.PWM_duty    = 0;
-    FAN_database.index       = 0;
-    FAN_database.FAN_tab     = 0;
+    FAN_database.PWM_act_duty       = 100;
+    FAN_database.PWM_tar_duty       = 100;
+    FAN_database.index              = 0;
+    FAN_database.FAN_tab            = 0;
 }
 
 void fan_update (FAN *FAN_DB)
@@ -51,6 +52,11 @@ void fan_update (FAN *FAN_DB)
     {
         TAB_index = 0;
     }
-    FAN_DB->PWM_duty    = (unsigned char)(fan_tab[FAN_DB->FAN_tab][TAB_index]);  
-    FAN_DB->index       = TAB_index;
+    FAN_DB->PWM_tar_duty    = (unsigned char)(fan_tab[FAN_DB->FAN_tab][TAB_index]);  
+    FAN_DB->index           = TAB_index;
+    
+    if (FAN_DB->PWM_act_duty < FAN_DB->PWM_tar_duty)
+        FAN_DB->PWM_act_duty++;
+    else if (FAN_DB->PWM_act_duty > FAN_DB->PWM_tar_duty)
+        FAN_DB->PWM_act_duty--;
 }
