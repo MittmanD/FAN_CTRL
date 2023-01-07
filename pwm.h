@@ -3,7 +3,7 @@
 #define EN          0x80
 #define POL         0x10
 
-//#define PWM_INVERT
+#define PWM_INVERT
 
 #define PWM_PORT    LATC       // 
 #define PWM_TRIS    TRISC      // 

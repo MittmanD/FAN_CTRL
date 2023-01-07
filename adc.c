@@ -11,8 +11,8 @@ void adc_init (void)
 
     FVRCON = 0b10000001;                // Gain 1x (1,024V)
     while(!(FVRCON & 0x40));            // wait till stable
-    ADCON1      =       0b11100000;     // connected to FVR
-   // ADCON1      =       0b11100011;   // connected to FVR
+    //ADCON1      =       0b11100000;     // connected to FVR
+    ADCON1      =       0b11100011;   // connected to FVR
     ADCON0      =       0b00001000; 
     ADCON0      |=      0x01;           // switch ADC on
 }
